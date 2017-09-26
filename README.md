@@ -1,5 +1,4 @@
 # algorithmExercise
-Playground for algorithm exercises
 
 LeedCode
 
