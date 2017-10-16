@@ -2,23 +2,22 @@
 import sys
 
 class Solution(object):
-    def twoSum(self, nums, target):
+    def containsNearbyDuplicate(self, nums, k):
         """
         :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
+        :type k: int
+        :rtype: bool
         """
         d = {}
         for i, n in enumerate(nums):
-            if target - n in d:
-                return [d[target-n], i]
-            else:
-                d[n] = i
-        return []
+            if n in d and i - d[n] <= k:
+                return True
+            d[n] = i
+        return False
 
 def main():
     aa = Solution()
-    print aa.twoSum()
+    print aa.containsNearbyDuplicate()
     return 0
 
 if __name__ == "__main__":

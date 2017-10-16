@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 
-
 class Solution(object):
     def decodeString(self, s):
         """
