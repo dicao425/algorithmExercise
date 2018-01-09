@@ -10,7 +10,7 @@ class TreeNode(object):
         self.right = None
 
 class Solution(object):
-    def isValidBST(self, root):
+    def isValidBST1(self, root):
         """
         :type root: TreeNode
         :rtype: bool
@@ -31,6 +31,17 @@ class Solution(object):
         self.result.append(node.val)
         self.dfs(node.right)
         return
+
+    def isValidBST(self, root):
+        # Divide and Conquer
+        return self.dc(root, -float('inf'), float('inf'))
+
+    def dc(self, node, l, r):
+        if not node:
+            return True
+        if node.val <= l or node.val >= r:
+            return False
+        return self.dc(node.left, l, min(node.val, r)) and self.dc(node.right, max(node.val, l), r)
 
 
 

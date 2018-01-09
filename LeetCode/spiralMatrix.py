@@ -1,3 +1,7 @@
+#!/usr/bin/python
+import sys
+
+
 class Solution(object):
     def spiralOrder(self, matrix):
         """
@@ -16,3 +20,10 @@ class Solution(object):
     def rotate(self, m):
         return zip(*m)[::-1]
 
+def main():
+    aa = Solution()
+    print aa.spiralOrder([[1,2,3], [4,5,6], [7,8,9]])
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

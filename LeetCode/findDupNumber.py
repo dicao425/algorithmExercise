@@ -1,3 +1,7 @@
+#!/usr/bin/python
+import sys
+
+
 class Solution(object):
     def findDuplicate(self, nums):
         """
@@ -17,3 +21,12 @@ class Solution(object):
             fast = nums[fast]
         return slow
 
+
+# nums[0] ALWAYS the entrance, because no number 0 in it.
+def main():
+    aa = Solution()
+    print aa.findDuplicate()
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

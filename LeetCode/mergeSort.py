@@ -1,3 +1,6 @@
+#!/usr/bin/python
+import sys
+
 def merge_sort(l):
     if len(l) <= 1:
         return l
@@ -22,3 +25,10 @@ def merge(left, right):
     return result
 
 # T Best- O(nlogn)  Ave - O(nlogn)  Worse - O(nlogn)    Space - O(n)
+
+def main():
+    print merge_sort([4,3,5,7,9,1,2,8])
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

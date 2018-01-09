@@ -1,3 +1,13 @@
+#!/usr/bin/python
+import sys
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution(object):
     def largestValues(self, root):
         """
@@ -22,3 +32,10 @@ class Solution(object):
             result.append(max(i))
         return result
 
+def main():
+    aa = Solution()
+    print aa.largestValues()
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

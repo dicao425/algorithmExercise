@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 
-
 class Solution(object):
     def divide(self, dividend, divisor):
         """
@@ -9,27 +8,19 @@ class Solution(object):
         :type divisor: int
         :rtype: int
         """
-        if divisor == 0:
-            return 2147483647
-        neg = True if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0) else False
-        dividend = abs(dividend)
-        divisor = abs(divisor)
-        result = 0
-        rest = 0
-        count = 1
-        d = divisor
+        positive = (dividend < 0) is (divisor < 0)
+        dividend, divisor = abs(dividend), abs(divisor)
+        res = 0
         while dividend >= divisor:
-            if dividend >= d:
-                dividend -= d
-                result += count
-                d = d << 1
-                count = count << 1
-            else:
-                d = d >> 1
-                count = count >> 1
-        if neg:
-            result = - result
-        return min(max(result, -2147483648), 2147483647)
+            temp, i = divisor, 1
+            while dividend >= temp:
+                dividend -= temp
+                res += i
+                i <<= 1
+                temp <<= 1
+        if not positive:
+            res = -res
+        return min(max(-2147483648, res), 2147483647)
 
 
 def main():

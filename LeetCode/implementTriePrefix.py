@@ -1,3 +1,7 @@
+#!/usr/bin/python
+import sys
+
+
 class TrieNode(object):
     def __init__(self):
         self.children = {}
@@ -64,3 +68,13 @@ class Trie(object):
 # obj.insert(word)
 # param_2 = obj.search(word)
 # param_3 = obj.startsWith(prefix)
+
+def main():
+    aa = Trie()
+    aa.insert("a")
+    print aa.search("a")
+    print aa.startsWith("a")
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

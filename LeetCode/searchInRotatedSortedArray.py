@@ -10,32 +10,24 @@ class Solution(object):
         """
         if not nums:
             return -1
-        length = len(nums)
-        if length == 1:
-            return 0 if target in nums else -1
-        p = length - 1
-        for i in range(length-1):
-            if nums[i] > nums[i+1]:
-                p = i
-                break
-        m = 0
-        r = p
-        l = p + 1
-        if target > nums[m]:
-            l = m + 1
-        elif target < nums[m]:
-            r = length - 1
-        else:
-            return m
-        m = (l+r)/2
-        while l <= r:
-            if target > nums[m]:
-                l = m + 1
-            elif target < nums[m]:
-                r = m - 1
+        first = 0
+        last = len(nums) - 1
+        while first + 1 < last:
+            m = (first + last) / 2
+            if nums[first] < nums[m]:
+                if nums[first] <= target and nums[m] > target:
+                    last = m
+                else:
+                    first = m
             else:
-                return m
-            m = (r+l)/2
+                if nums[last] >= target and nums[m] < target:
+                    first = m
+                else:
+                    last = m
+        if nums[first] == target:
+            return first
+        if nums[last] == target:
+            return last
         return -1
 
 def main():

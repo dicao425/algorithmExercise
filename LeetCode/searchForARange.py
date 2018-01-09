@@ -8,22 +8,38 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        def ss(n):
-            l = 0
-            r = len(nums)
-            while l<r:
-                m = (l+r)/2
-                if nums[m] >= n:
-                    r = m
-                else:
-                    l = m + 1
-            return l
-        low = ss(target)
-        high = ss(target+1)
-        if target in nums[low: low+1]:
-            return [low, high-1]
+        if not nums:
+            return [-1, -1]
+        first = 0
+        last = len(nums) - 1
+        r1, r2 = -1, -1
+        while first + 1 < last:
+            m = (first+last)/2
+            if nums[m] < target:
+                first = m
+            else:
+                last = m
+        if nums[first] == target:
+            r1 = first
+        elif nums[last] == target:
+            r1 = last
+        else:
+            return [r1, r2]
+        first = 0
+        last = len(nums) - 1
+        while first + 1 < last:
+            m = (first+last)/2
+            if nums[m] > target:
+                last = m
+            else:
+                first = m
+        if nums[last] == target:
+            r2 = last
+        elif nums[first] == target:
+            r2 = first
         else:
             return [-1, -1]
+        return [r1, r2]
 
 def main():
     aa = Solution()

@@ -1,3 +1,6 @@
+#!/usr/bin/python
+import sys
+
 class Solution(object):
     def subsets(self, nums):
         """
@@ -10,3 +13,11 @@ class Solution(object):
             result += [i+[n] for i in result]
         return result
 
+
+def main():
+    aa = Solution()
+    print aa.subsets()
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

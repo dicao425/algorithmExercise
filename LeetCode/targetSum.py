@@ -1,3 +1,6 @@
+#!/usr/bin/python
+import sys
+
 class Solution(object):
     def findTargetSumWays(self, nums, S):
         """
@@ -16,3 +19,9 @@ class Solution(object):
             d = temp
         return d.get(S, 0)
 
+def main():
+    aa = Solution()
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())

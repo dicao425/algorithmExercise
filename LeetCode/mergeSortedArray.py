@@ -1,3 +1,6 @@
+#!/usr/bin/python
+import sys
+
 class Solution(object):
     def merge(self, nums1, m, nums2, n):
         """
@@ -16,3 +19,11 @@ class Solution(object):
                 n -= 1
         if n>0:
             nums1[:n] = nums2[:n]
+
+def main():
+    aa = Solution()
+    print aa.merge()
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
