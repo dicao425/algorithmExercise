@@ -24,6 +24,28 @@ class Solution(object):
         return True
 
 
+class Solution1(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root:
+            return True
+        return self.dfs(root.left, root.right)
+
+    def dfs(self, ln, rn):
+        if not ln and not rn:
+            return True
+        if not ln or not rn:
+            return False
+        if ln.val != rn.val:
+            return False
+        if not self.dfs(ln.left, rn.right) or not self.dfs(ln.right, rn.left):
+            return False
+        return True
+
+
 def main():
     aa = Solution()
     print aa.isSymmetric()

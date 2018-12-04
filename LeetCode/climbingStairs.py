@@ -14,11 +14,12 @@ class Solution(object):
             return 2
         one = 1
         two = 2
+        result = 0
         for i in range(3, n+1):
-            steps = one + two
+            result = one + two
             one = two
-            two = steps
-        return steps
+            two = result
+        return result
 
 def main():
     aa = Solution()

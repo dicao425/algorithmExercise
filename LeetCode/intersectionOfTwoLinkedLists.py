@@ -1,7 +1,6 @@
 #!/usr/bin/python
 import sys
 
-
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -9,6 +8,53 @@ import sys
 #         self.next = None
 
 class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if not headA or not headB:
+            return
+        pa = headA
+        pb = headB
+        while pa != pb:
+            pa = headB if not pa else pa.next
+            pb = headA if not pb else pb.next
+        return pa
+
+
+class Solution1(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if not headA or not headB:
+            return
+        pa = headA
+        pb = headB
+        ta = None
+        tb = None
+        while True:
+            if pa == pb:
+                return pa
+            if not pa.next:
+                ta = pa
+            if not pb.next:
+                tb = pb
+            if ta and tb and ta != tb:
+                return
+            pa = pa.next
+            pb = pb.next
+            if not pa:
+                pa = headB
+            if not pb:
+                pb = headA
+        return
+
+
+
+class Solution2(object):
     def getIntersectionNode(self, headA, headB):
         """
         :type head1, head1: ListNode

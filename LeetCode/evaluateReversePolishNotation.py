@@ -26,6 +26,29 @@ def oper(self, a, b, op):
     elif op == '/':
         return int(b / float(a))
 
+class Solution(object):
+    def evalRPN(self, tokens):
+        """
+        :type tokens: List[str]
+        :rtype: int
+        """
+        stack = []
+        for t in tokens:
+            if t not in ('+', '-', '*', '/'):
+                stack.append(int(t))
+            else:
+                n1 = stack.pop()
+                n2 = stack.pop()
+                if t == "+":
+                    stack.append(n1+n2)
+                elif t == "-":
+                    stack.append(n2-n1)
+                elif t == "*":
+                    stack.append(n1 * n2)
+                elif t == "/":
+                    stack.append(int(n2*1.0/n1))
+        return stack[0]
+
 def main():
     tokens = ["4", "13", "5", "/", "+"]
     aa = Solution()

@@ -18,6 +18,32 @@ class Solution:
             print stack
             stack += neighbors.pop(stack.pop(), [])
         return not neighbors
+
+class Solution1(object):
+    def validTree(self, n, edges):
+        """  (BFS)
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: bool
+        """
+        d = {i: set() for i in range(n)}
+        for v, w in edges:
+            d[v].add(w)
+            d[w].add(v)
+        root = [d.keys()[0]]
+        visited = set()
+        while root:
+            node = root.pop(0)
+            if node in visited:
+                return False
+            else:
+                visited.add(node)
+                for k in d[node]:
+                    root.append(k)
+                    d[k].remove(node)
+                del d[node]
+        return not d
+
 def main():
     aa = Solution()
     print aa.validTree(5, [[0,1],[0,2],[1,3],[3,2]])

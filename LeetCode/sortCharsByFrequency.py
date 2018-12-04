@@ -1,7 +1,27 @@
 #!/usr/bin/python
 import sys
 
+
 class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        result = ""
+        d = dict()
+        for c in s:
+            d[c] = d.get(c, 0) + 1
+        a = [[] for _ in range(len(s) + 1)]
+        for k in d.keys():
+            a[d[k]].append(k)
+        for i in range(len(a) - 1, -1, -1):
+            for c in a[i]:
+                result += i * c
+        return result
+
+
+class Solution1(object):
     def frequencySort(self, s):
         """
         :type s: str
@@ -17,6 +37,7 @@ class Solution(object):
         for i in range(len(a)-1, -1, -1):
             result += ''.join([i*n for n in a[i]])
         return result
+
 
 def main():
     aa = Solution()
